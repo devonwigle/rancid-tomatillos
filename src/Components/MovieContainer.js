@@ -9,13 +9,13 @@ const MovieContainer = ({data}) => {
       <MovieCard 
         poster_path={movie.poster_path}
         title={movie.title}
-        average_rating={movie.average_rating}
+        average_rating={movie.average_rating.toFixed(2)}
         key={movie.id}
       />
     )
   })
   return (
-    <div>
+    <div className='movie-container'> 
       {movieCardComponents}
     </div>
   )
