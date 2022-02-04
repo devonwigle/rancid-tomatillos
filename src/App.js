@@ -8,7 +8,9 @@ import './App.css'
 class App extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      selectedMovie: false
+    }
   }
   
   render() {
