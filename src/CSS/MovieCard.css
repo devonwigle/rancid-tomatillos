@@ -2,3 +2,9 @@
   height: 200px;
   width: auto;
 }
+
+.card-image:hover {
+  box-shadow: 8px 8px 5px yellow;
+  height: 220px;
+  cursor: pointer;
+}
