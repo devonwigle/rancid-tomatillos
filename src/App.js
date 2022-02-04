@@ -20,7 +20,8 @@ class App extends Component {
   showMovieDetails = () => {
     if(this.state.selectedMovie){
       return (
-        <div>movie details</div>
+        <div>movie</div>
+
       )
     }
 
