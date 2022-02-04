@@ -12,13 +12,30 @@ class App extends Component {
       selectedMovie: false
     }
   }
+
+  showId = (id) => {
+    this.setState({selectedMovie: true})
+  }
+
+  showMovieDetails = () => {
+    if(this.state.selectedMovie){
+      return (
+        <div>movie details</div>
+      )
+    }
+
+    return(
+      <MovieContainer data={movieData} showId={this.showId}/>
+    )
+  }
+
   
   render() {
     return (
       <main>
         <h1 className="title">Rancid Tomatillos <img className="icon" src={videoIcon}/> </h1>
         
-        <MovieContainer data={movieData}/>
+       {this.showMovieDetails()}
       </main>
     )
   }

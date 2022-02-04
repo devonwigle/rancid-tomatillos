@@ -2,7 +2,7 @@ import React from 'react'
 import MovieCard from './MovieCard'
 import '../CSS/MovieContainer.css'
 
-const MovieContainer = ({data, showDetails}) => {
+const MovieContainer = ({data, showId}) => {
   console.log({data})
   const movieCardComponents = data.movies.map(movie => {
     return (
@@ -10,6 +10,7 @@ const MovieContainer = ({data, showDetails}) => {
         poster_path={movie.poster_path}
         title={movie.title}
         average_rating={movie.average_rating.toFixed(2)}
+        showId={showId}
         id={movie.id}
         key={movie.id}
       />
