@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react'
 import movieData from './data.js'
+import videoIcon from './assets/video-icon.png'
 import MovieContainer from './Components/MovieContainer'
 import './App.css'
 
@@ -13,7 +14,8 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1 className="title">Rancid Tomatillos</h1>
+        <h1 className="title">Rancid Tomatillos <img className="icon" src={videoIcon}/> </h1>
+        
         <MovieContainer data={movieData}/>
       </main>
     )

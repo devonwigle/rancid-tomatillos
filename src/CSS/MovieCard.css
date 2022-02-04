@@ -1,10 +1,10 @@
 .card-image {
-  height: 200px;
+  height: 300px;
   width: auto;
 }
 
 .card-image:hover {
-  box-shadow: 8px 8px 5px yellow;
-  height: 220px;
+  box-shadow: 8px 8px 5px rgb(247, 182, 17);
+  height: 320px;
   cursor: pointer;
 }
