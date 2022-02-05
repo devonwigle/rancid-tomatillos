@@ -1,12 +1,13 @@
 import React from 'react';
+import App from '../App';
 import '../CSS/Header.css';
 
 
-const Header = () => {
+const Header = ({goHome}) => {
 return(
   <div className="header">
   <h1 className="title">Rancid Tomatillos</h1>
-  <button className="home-button">Home</button>
+  <button onClick={() => goHome()} className="home-button">Home</button>
   </div>
 )
 }

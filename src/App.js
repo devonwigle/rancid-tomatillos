@@ -42,11 +42,15 @@ class App extends Component {
     )
   }
 
+  goHome = () => {
+    this.setState({selectedMovie: {}, showDetails: false})
+  }
+
   
   render() {
     return (
       <main>
-        <Header />
+        <Header goHome={this.goHome} />
        {this.setMovieView()}
       </main>
     )
