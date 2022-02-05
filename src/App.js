@@ -13,19 +13,20 @@ class App extends Component {
       movies: [],
       selectedMovie: {},
       showDetails: false,
+      error: ''
     }
   }
   
   componentDidMount() {
     const apiData = getAllMovies()
       .then(({movies}) => this.setState({movies}))
-      .catch((error) => console.log(error))
+      .catch((error) => this.setState({error: 'Sorry, the server seems to be down. Please try again later'}))
   }
 
   selectMovie = (id) => {
     const apiData = getSingleMovie(id)
       .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
-      .catch((error) => console.log(error))
+      .catch((error) => this.setState({ error: 'Sorry, the server seems to be down. Please try again later' }))
   }
 
   setMovieView = () => {
@@ -60,6 +61,7 @@ class App extends Component {
     return (
       <main>
         <Header goHome={this.goHome} />
+        {this.state.error && <h2>{this.state.error}</h2>}
        {this.setMovieView()}
       </main>
     )
