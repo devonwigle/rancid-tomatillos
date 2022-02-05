@@ -1,9 +1,10 @@
 
 import React, {Component} from 'react'
 import movieData from './data.js'
-import videoIcon from './assets/video-icon.png'
+
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
+import Header from './Components/Header'
 import './App.css'
 
 class App extends Component {
@@ -45,8 +46,7 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1 className="title">Rancid Tomatillos <img className="icon" src={videoIcon}/> </h1>
-        
+        <Header />
        {this.setMovieView()}
       </main>
     )

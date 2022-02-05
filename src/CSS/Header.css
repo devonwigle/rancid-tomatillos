@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-button {
+  color:white;
+  border: none;
+  background-color: black;
+  font-size: 40px;
+  cursor: pointer;
+}
