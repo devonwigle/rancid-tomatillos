@@ -1,7 +1,6 @@
 
 import React, {Component} from 'react'
-import movieData from './data.js'
-
+import getAllMovies from './apiCalls'
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
@@ -11,13 +10,20 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      movies: [],
       selectedMovie: {},
       showDetails: false,
     }
   }
+  
+  componentDidMount() {
+    const apiData = getAllMovies()
+      .then(({movies}) => this.setState({movies}))
+      .catch((error) => console.log(error))
+  }
 
   selectMovie = (id) => {
-    const foundMovie = movieData.movies.find(movie => movie.id === id)
+    const foundMovie = this.movies.find(movie => movie.id === id)
 
     this.setState({selectedMovie: foundMovie, showDetails: true})
   }
@@ -38,7 +44,7 @@ class App extends Component {
     }
 
     return(
-      <MovieContainer data={movieData} selectMovie={this.selectMovie}/>
+      <MovieContainer movies={this.state.movies} selectMovie={this.selectMovie}/>
     )
   }
 
@@ -46,8 +52,9 @@ class App extends Component {
     this.setState({selectedMovie: {}, showDetails: false})
   }
 
-  
+
   render() {
+    console.log('state', this.state)
     return (
       <main>
         <Header goHome={this.goHome} />
