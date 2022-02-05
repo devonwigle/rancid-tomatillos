@@ -37,6 +37,8 @@ class App extends Component {
         title={movie.title}
         average_rating={movie.average_rating.toFixed(2)}
         release_date={movie.release_date}
+        overview={movie.overview}
+        runtime={movie.runtime}
         >
         </MovieDetails>
 
