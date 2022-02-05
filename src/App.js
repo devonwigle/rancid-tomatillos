@@ -3,30 +3,41 @@ import React, {Component} from 'react'
 import movieData from './data.js'
 import videoIcon from './assets/video-icon.png'
 import MovieContainer from './Components/MovieContainer'
+import MovieDetails from './Components/MovieDetails'
 import './App.css'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      selectedMovie: false
+      selectedMovie: {},
+      showDetails: false,
     }
   }
 
-  showId = (id) => {
-    this.setState({selectedMovie: true})
+  selectMovie = (id) => {
+    const foundMovie = movieData.movies.find(movie => movie.id === id)
+
+    this.setState({selectedMovie: foundMovie, showDetails: true})
   }
 
-  showMovieDetails = () => {
-    if(this.state.selectedMovie){
+  setMovieView = () => {
+    if(this.state.showDetails === true){
+      const movie = this.state.selectedMovie
       return (
-        <div>movie</div>
+        <MovieDetails 
+        backdrop_path={movie.backdrop_path}
+        title={movie.title}
+        average_rating={movie.average_rating.toFixed(2)}
+        release_date={movie.release_date}
+        >
+        </MovieDetails>
 
       )
     }
 
     return(
-      <MovieContainer data={movieData} showId={this.showId}/>
+      <MovieContainer data={movieData} selectMovie={this.selectMovie}/>
     )
   }
 
@@ -36,7 +47,7 @@ class App extends Component {
       <main>
         <h1 className="title">Rancid Tomatillos <img className="icon" src={videoIcon}/> </h1>
         
-       {this.showMovieDetails()}
+       {this.setMovieView()}
       </main>
     )
   }
