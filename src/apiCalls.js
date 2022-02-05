@@ -1,4 +1,3 @@
-import React from 'react' 
 
 
   const getAllMovies = async () => { 
@@ -6,4 +5,8 @@ import React from 'react'
       .then(response => response.json())
   }
 
-  export default getAllMovies
+  const getSingleMovie = async (id) =>{
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => response.json())
+  }
+  export {getAllMovies, getSingleMovie}

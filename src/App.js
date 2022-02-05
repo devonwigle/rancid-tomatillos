@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import getAllMovies from './apiCalls'
+import {getAllMovies, getSingleMovie} from './apiCalls'
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
@@ -23,9 +23,9 @@ class App extends Component {
   }
 
   selectMovie = (id) => {
-    const foundMovie = this.movies.find(movie => movie.id === id)
-
-    this.setState({selectedMovie: foundMovie, showDetails: true})
+    const apiData = getSingleMovie(id)
+      .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
+      .catch((error) => console.log(error))
   }
 
   setMovieView = () => {
