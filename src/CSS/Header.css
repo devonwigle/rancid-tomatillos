@@ -1,12 +1,22 @@
 .header {
   display: flex;
   justify-content: space-between;
+  padding-left: 5%;
+  font-family: 'Ultra', serif;
+  font-size: 30px;
 }
 
 .home-button {
   color:white;
   border: none;
   background-color: black;
-  font-size: 40px;
+  font-size: 25px;
   cursor: pointer;
+  margin-right: 20px;
+  text-decoration: underline;
+  font-family: 'Ultra', serif;
+}
+
+.tomato {
+  width: 50px;
 }
