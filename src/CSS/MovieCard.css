@@ -1,12 +1,18 @@
 .card-image {
+  margin: 0 4px;
+  padding: 10px;	
+	transition-duration:0.3s;	
+	cursor:pointer;
   height: 300px;
-  width: auto;
 }
 
 .card-image:hover {
   box-shadow: 8px 8px 5px rgb(247, 182, 17);
-  height: 320px;
-  cursor: pointer;
+  margin: 5 4px;
+  padding: 0;	
+	transition-duration:0.2s;	
+	cursor:pointer;
+  height: 310px;
 }
 
 .card {

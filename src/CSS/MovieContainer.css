@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   justify-content: space-evenly;
   padding-top: 3%;
-  padding-left: 9%;
+  padding-left: 5%;
 }
 
 /* .movie-container:hover {
