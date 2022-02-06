@@ -8,3 +8,7 @@
   height: 320px;
   cursor: pointer;
 }
+
+.card {
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
