@@ -5,7 +5,7 @@ const MovieDetails = ({id, backdrop_path, title, release_date, overview, average
   return(
     <div className="movie-details">
       <img className="backdrop" src={backdrop_path} />
-      <div class="details">
+      <div className="details">
       <p className="detail-title">{title}</p>
       <p>User Rating: {average_rating}</p>
       <p>Release Date: {release_date}</p>
