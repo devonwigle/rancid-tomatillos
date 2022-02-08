@@ -20,13 +20,13 @@ class App extends Component {
   componentDidMount() {
     const apiData = getAllMovies()
       .then(({movies}) => this.setState({movies}))
-      .catch((error) => this.setState({error: 'Sorry, the server seems to be down. Please try again later'}))
+      .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
   }
 
   selectMovie = (id) => {
     const apiData = getSingleMovie(id)
       .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
-      .catch((error) => this.setState({ error: 'Sorry, the server seems to be down. Please try again later' }))
+      .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later' }))
   }
 
   setMovieView = () => {
