@@ -5,6 +5,8 @@ import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
 import './App.css'
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
   constructor() {
