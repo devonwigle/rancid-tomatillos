@@ -13,8 +13,8 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      selectedMovie: {},
-      showDetails: false,
+      // selectedMovie: {},
+      // showDetails: false,
       error: ''
     }
   }
@@ -53,22 +53,22 @@ class App extends Component {
   //   )
   // }
 
-  goHome = () => {
-    this.setState({selectedMovie: {}, showDetails: false})
-  }
+  // goHome = () => {
+  //   this.setState({selectedMovie: {}, showDetails: false})
+  // }
 
 
   render() {
     console.log('state', this.state)
+
     return (
-     
       <main>
-        <Header goHome={this.goHome} />
+        <Header />
         <Route exact path="/">
         {this.state.error && <h2>{this.state.error}</h2>}
         <MovieContainer movies={this.state.movies}></MovieContainer>
        </Route>
-       <Route
+        <Route
           exact
           path="/:id"
           render={({ match }) => {
