@@ -78,11 +78,11 @@ class App extends Component {
             if(movieToRender === undefined) {
               return 'Loading'
             } else {
+              console.log(movieToRender)
               return (
-                <MovieDetails id={movieToRender.id} backdrop_path={movieToRender.backdrop_path} title={movieToRender.title} release_date={movieToRender.release_date} overview={movieToRender.overview} average_rating={movieToRender.average_rating} runtime={movieToRender.runtime} />
+                <MovieDetails id={movieToRender.id} backdrop_path={movieToRender.backdrop_path} title={movieToRender.title} release_date={movieToRender.release_date} overview={movieToRender.overview} average_rating={movieToRender.average_rating.toFixed(2)} runtime={movieToRender.runtime} />
               )
             }
-            
           }}
         />
       </main>
