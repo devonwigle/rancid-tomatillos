@@ -75,10 +75,14 @@ class App extends Component {
             const movieToRender = this.state.movies.find(
               (movie) => movie.id === parseInt(match.params.id)
             );
+            if(movieToRender === undefined) {
+              return 'Loading'
+            } else {
+              return (
+                <MovieDetails id={movieToRender.id} backdrop_path={movieToRender.backdrop_path} title={movieToRender.title} release_date={movieToRender.release_date} overview={movieToRender.overview} average_rating={movieToRender.average_rating} runtime={movieToRender.runtime} />
+              )
+            }
             
-            return (
-              <MovieDetails id={movieToRender.id} backdrop_path={movieToRender.backdrop_path} title={movieToRender.title} release_date={movieToRender.release_date} overview={movieToRender.overview} average_rating={movieToRender.average_rating} runtime={movieToRender.runtime} />
-            )
           }}
         />
       </main>
