@@ -4,9 +4,11 @@ import {getAllMovies, getSingleMovie} from './apiCalls'
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
+import {Route, Link, NavLink} from 'react-router-dom'
 import './App.css'
 
-class App extends Component {
+
+export default class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -23,11 +25,12 @@ class App extends Component {
       .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
   }
 
-  selectMovie = (id) => {
-    const apiData = getSingleMovie(id)
-      .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
-      .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later' }))
-  }
+  // selectMovie = (id) => {
+  //   const apiData = getSingleMovie(id)
+  //     console.log(id)
+  //     .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
+  //     .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later' }))
+  // }
 
   setMovieView = () => {
     if(this.state.showDetails === true){
@@ -57,15 +60,31 @@ class App extends Component {
 
 
   render() {
-    console.log('state', this.state)
     return (
-      <main>
-        <Header goHome={this.goHome} />
-        {this.state.error && <h2>{this.state.error}</h2>}
-       {this.setMovieView()}
-      </main>
-    )
+      <div>
+        <main>
+          <Header goHome={this.goHome} />
+          {this.state.error && <h2>{this.state.error}</h2>}
+          {this.setMovieView()}
+          <li>
+            <Link to="/"> render=<MovieContainer movies={this.state.movies} selectMovie={this.selectMovie}/></Link>
+          </li>
+          <li>
+            <Link to="/:movieId">render=<MovieDetails render={({ match }) => { console.log(match) }} /></Link>
+          </li>
+        </main>
+        <Route exact path="/" component={MovieContainer}> </Route>
+        <Route exact path="/:movieId" render={({match}) => {
+          this.selectMovie = (id) => {
+            const chosenMovie = getSingleMovie(id)
+            console.log(id)
+              .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
+              .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later' }))
+            return <MovieDetails {...chosenMovie} /> }}
+          } />
+      </div>
+    );
   }
 }
 
-export default App;
+
