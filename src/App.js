@@ -13,8 +13,8 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
+      // selectedMovieId: 0,
       // selectedMovie: {},
-      // showDetails: false,
       error: ''
     }
   }
@@ -25,11 +25,6 @@ class App extends Component {
       .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
   }
 
-  // selectMovie = (id) => {
-  //   getSingleMovie(id)
-  //     .then(({ movie }) => this.setState({ selectedMovie: movie, showDetails: true }))
-  //     .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later' }))
-  // }
 
   // setMovieView = () => {
   //   if(this.state.showDetails === true){
@@ -71,27 +66,9 @@ class App extends Component {
         <Route
           exact
           path="/:id"
-          render={({ match }) => {
-            const movieToRender = this.state.movies.find(
-              (movie) => movie.id === parseInt(match.params.id)
-            );
-            if(movieToRender === undefined) {
-              return 'Loading'
-            } else {
-              console.log(movieToRender)
-              return (
-                <MovieDetails id={movieToRender.id} backdrop_path={movieToRender.backdrop_path} title={movieToRender.title} release_date={movieToRender.release_date} overview={movieToRender.overview} average_rating={movieToRender.average_rating.toFixed(2)} runtime={movieToRender.runtime} />
-              )
-            }
-          }}
+          render={({match}) => <MovieDetails id={match.params.id}></MovieDetails>}
         />
       </main>
-
-      
-    
-      
-
-  
     )
   }
 }

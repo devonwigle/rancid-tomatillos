@@ -1,19 +1,42 @@
-import React from 'react'
+import React, {Component} from 'react'
 import '../CSS/MovieDetails.css'
+import {getSingleMovie} from '../apiCalls'
 
-const MovieDetails = ({id, backdrop_path, title, release_date, overview, average_rating, runtime}) => {
-  return(
-    <div className="movie-details">
-      <img className="backdrop" src={backdrop_path} />
-      <div className="details">
-      <p className="detail-title">{title}</p>
-      <p>User Rating: {average_rating}</p>
-      <p>Release Date: {release_date}</p>
-      <p>Overview: {overview}</p>
-      <p>Runtime: {runtime} minutes</p>
+
+class MovieDetails extends Component {
+  constructor() {
+    super()
+    this.state = {
+      movie: undefined,
+    }
+  }
+
+  componentDidMount() {
+    getSingleMovie(this.props.id)
+      .then(( data) => {
+        this.setState({ movie: data.movie })
+      })
+  }
+
+  render() {
+    if (this.state.movie === undefined) {
+      return <div>loading</div>
+    }
+
+
+    return(
+      <div className="movie-details">
+        <img className="backdrop" src={this.state.movie.backdrop_path} />
+        <div className="details">
+        <p className="detail-title">{this.state.movie.title}</p>
+        <p>User Rating: {this.state.movie.average_rating}</p>
+        <p>Release Date: {this.state.movie.release_date}</p>
+        <p>Overview: {this.state.movie.overview}</p>
+        <p>Runtime: {this.state.movie.runtime} minutes</p>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default MovieDetails
