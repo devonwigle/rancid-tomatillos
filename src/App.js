@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import {getAllMovies, getSingleMovie} from './apiCalls'
+import {getAllMovies} from './apiCalls'
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
@@ -13,8 +13,6 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      // selectedMovieId: 0,
-      // selectedMovie: {},
       error: ''
     }
   }
@@ -26,36 +24,7 @@ class App extends Component {
   }
 
 
-  // setMovieView = () => {
-  //   if(this.state.showDetails === true){
-  //     const movie = this.state.selectedMovie
-  //     return (
-  //         <MovieDetails 
-  //         backdrop_path={movie.backdrop_path}
-  //         title={movie.title}
-  //         average_rating={movie.average_rating.toFixed(2)}
-  //         release_date={movie.release_date}
-  //         overview={movie.overview}
-  //         runtime={movie.runtime}
-  //         >
-  //         </MovieDetails>
-        
-  //     )
-  //   }
-
-  //   return(
-  //     <MovieContainer movies={this.state.movies} selectMovie={this.selectMovie}/>
-  //   )
-  // }
-
-  // goHome = () => {
-  //   this.setState({selectedMovie: {}, showDetails: false})
-  // }
-
-
   render() {
-    console.log('state', this.state)
-
     return (
       <main>
         <Header />
