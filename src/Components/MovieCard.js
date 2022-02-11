@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import '../CSS/MovieCard.css'
 
-const MovieCard = ({poster_path, backdrop_path, title, average_rating, release_date, id}) => {
+const MovieCard = ({poster_path, title, average_rating, id}) => {
   return (
     <Link to={`/${id}`}>
       <div className="card">

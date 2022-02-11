@@ -31,7 +31,7 @@ class App extends Component {
         <Route exact path="/">
         {this.state.error && <h2>{this.state.error}</h2>}
         <MovieContainer movies={this.state.movies}></MovieContainer>
-       </Route>
+        </Route>
         <Route
           exact
           path="/:id"

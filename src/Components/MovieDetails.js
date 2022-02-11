@@ -13,26 +13,25 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     getSingleMovie(this.props.id)
-      .then(( data) => {
+      .then((data) => {
         this.setState({ movie: data.movie })
       })
   }
 
   render() {
-    if (this.state.movie === undefined) {
+    if (!this.state.movie) {
       return <div>loading</div>
     }
-
 
     return(
       <div className="movie-details">
         <img className="backdrop" src={this.state.movie.backdrop_path} />
         <div className="details">
-        <p className="detail-title">{this.state.movie.title}</p>
-        <p>User Rating: {this.state.movie.average_rating}</p>
-        <p>Release Date: {this.state.movie.release_date}</p>
-        <p>Overview: {this.state.movie.overview}</p>
-        <p>Runtime: {this.state.movie.runtime} minutes</p>
+          <p className="detail-title">{this.state.movie.title}</p>
+          <p>User Rating: {this.state.movie.average_rating.toFixed(2)}</p>
+          <p>Release Date: {this.state.movie.release_date}</p>
+          <p>Overview: {this.state.movie.overview}</p>
+          <p>Runtime: {this.state.movie.runtime} minutes</p>
         </div>
       </div>
     )
