@@ -1,14 +1,6 @@
 import React from 'react'
 
-class Filter extends Component {
-  constructor() {
-    super()
-    this.state = {
-      selectedGenre: 'all'
-    }
-  }
-} 
-({filterGenre}) => {
+const Filter = ({filterGenre}) => {
   
 
   const handleChange = (genre) => {
@@ -20,22 +12,22 @@ class Filter extends Component {
     <div>
         <label name="genre">Choose a genre:</label>
           <select id="genre" name="genre" onChange={({target: {value}}) => handleChange(value)}>
-            <option value="all">All</option>
-            <option value="action">Action</option>
-            <option value="adventure">Adventure</option>
-            <option value="animation">Animation</option>
-            <option value="comedy">Comedy</option>
-            <option value="crime">Crime</option>
-            <option value="drama">Drama</option>
-            <option value="family">Family</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="history">History</option>
-            <option value="horror">Horror</option>
-            <option value="music">Music</option>
-            <option value="romance">Romance</option>
-            <option value="science fiction">Science Fiction</option>
-            <option value="thriller">Thriller</option>
-            <option value="war">War</option>
+            <option value="All">All</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animation">Animation</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Arime">Crime</option>
+            <option value="Drama">Drama</option>
+            <option value="Family">Family</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="History">History</option>
+            <option value="Horror">Horror</option>
+            <option value="Music">Music</option>
+            <option value="Romance">Romance</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Thriller">Thriller</option>
+            <option value="War">War</option>
           </select>
       </div>
     )
