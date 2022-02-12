@@ -14,7 +14,8 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      error: ''
+      error: '',
+      selectedGenre: 'all'
     }
   }
   
@@ -25,15 +26,29 @@ class App extends Component {
       .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
   }
 
-  getMovieGenres = () => {
-    this.state.movies.map(movie => {
-      getSingleMovie(movie.id)
-      .then(singleMovie => movie.genres = singleMovie.movie.genres)
-    })
+  getMovieGenres = async () => {
+    const updatedMovies = []
+    for(const movie of this.state.movies) {
+      const singleMovie = await getSingleMovie(movie.id)
+      movie.genres = singleMovie.movie.genres
+      updatedMovies.push(movie)
+    }
+    this.setState({movies: updatedMovies})
   }
 
-  selectGenre = (genre) => {
-    const movies = this.state.movies
+  handleChange = (event) => {
+    this.setState({selectedGenre: event.target.name})
+  }
+
+  filterGenre = (genre) => {
+      debugger
+      this.state.movies.filter(movie => {
+      if(this.state.selectedGenre !== 'all') {
+        return movie.genres.includes(this.state.selectedGenre)
+      } else {
+        return this.state.movies
+      }
+    })
   }
 
 
@@ -41,7 +56,7 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <Filter selectGenre={this.selectGenre} />
+        <Filter filterGenre={this.filterGenre} />
         <Route exact path="/">
         {this.state.error && <h2>{this.state.error}</h2>}
         <MovieContainer movies={this.state.movies}></MovieContainer>

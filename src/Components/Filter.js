@@ -1,10 +1,18 @@
 import React from 'react'
 
-const Filter = ({selectGenre}) => {
+class Filter extends Component {
+  constructor() {
+    super()
+    this.state = {
+      selectedGenre: 'all'
+    }
+  }
+} 
+({filterGenre}) => {
   
 
   const handleChange = (genre) => {
-    selectGenre(genre)
+    filterGenre(genre)
   }
 
   
