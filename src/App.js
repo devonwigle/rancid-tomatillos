@@ -4,7 +4,7 @@ import {getAllMovies} from './apiCalls'
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
-import Form from './Components/Form'
+import Filter from './Components/Filter'
 import './App.css'
 import { Route } from 'react-router-dom';
 
@@ -24,8 +24,9 @@ class App extends Component {
       .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
   }
 
-  filterByGenre() {
-
+  selectGenre = (genre) => {
+    const movies = this.state.movies
+    debugger
   }
 
 
@@ -33,7 +34,7 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <Form />
+        <Filter selectGenre={this.selectGenre} />
         <Route exact path="/">
         {this.state.error && <h2>{this.state.error}</h2>}
         <MovieContainer movies={this.state.movies}></MovieContainer>

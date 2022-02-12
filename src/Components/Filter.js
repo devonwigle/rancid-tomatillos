@@ -1,22 +1,18 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class Form extends Component {
-  constructor() {
-    super()
-    this.state = {
-      genre: '',
-      title: ''
-    }
+const Filter = ({selectGenre}) => {
+  
+
+  const handleChange = (genre) => {
+    selectGenre(genre)
+   
   }
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value})
-  }
-  render() {
+
+  
     return (
-      <form>
-        <input type="text" placeholder="title" name="title" value={this.state.title} onChange={event => this.handleChange(event)} />
-        <label for="genre">Choose a genre:</label>
-          <select id="genre" name="genre">
+     <div>
+        <label name="genre">Choose a genre:</label>
+          <select id="genre" name="genre" onChange={({target: {value}}) => handleChange(value)}>
             <option value="all">All</option>
             <option value="action">Action</option>
             <option value="adventure">Adventure</option>
@@ -34,10 +30,9 @@ class Form extends Component {
             <option value="thriller">Thriller</option>
             <option value="war">War</option>
           </select>
-          <input type="submit" onChange={event => this.handleChange(event)}/>
-      </form>
+      </div>
     )
   }
-}
 
-export default Form
+
+export default Filter
