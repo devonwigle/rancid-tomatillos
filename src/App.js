@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import {getAllMovies} from './apiCalls'
+import {getAllMovies, getSingleMovie} from './apiCalls'
 import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
@@ -21,12 +21,19 @@ class App extends Component {
   componentDidMount() {
     getAllMovies()
       .then(({movies}) => this.setState({movies}))
+      .then(() => this.getMovieGenres())
       .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
+  }
+
+  getMovieGenres = () => {
+    this.state.movies.map(movie => {
+      getSingleMovie(movie.id)
+      .then(singleMovie => movie.genres = singleMovie.movie.genres)
+    })
   }
 
   selectGenre = (genre) => {
     const movies = this.state.movies
-    debugger
   }
 
 

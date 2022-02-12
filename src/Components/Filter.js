@@ -5,12 +5,11 @@ const Filter = ({selectGenre}) => {
 
   const handleChange = (genre) => {
     selectGenre(genre)
-   
   }
 
   
     return (
-     <div>
+    <div>
         <label name="genre">Choose a genre:</label>
           <select id="genre" name="genre" onChange={({target: {value}}) => handleChange(value)}>
             <option value="all">All</option>
