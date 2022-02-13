@@ -1,0 +1,23 @@
+
+.search-bar {
+  margin-left: 4.5%;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+
+.search-button {
+  margin-left: 5px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.search-input {
+  height: 40px;
+  width: 350px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}

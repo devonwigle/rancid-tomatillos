@@ -1,0 +1,10 @@
+.genre-filter {
+  margin-left: 5%;
+  font-size: 15px;
+  display: flex;
+  font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.filter-label {
+  margin-right: 5px;
+}

@@ -5,6 +5,7 @@ import MovieContainer from './Components/MovieContainer'
 import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
 import Filter from './Components/Filter'
+import Search from './Components/Search'
 import './App.css'
 import { Route } from 'react-router-dom';
 
@@ -19,10 +20,19 @@ class App extends Component {
     }
   }
   
-  componentDidMount() {
+  componentDidMount = () => {
     getAllMovies()
       .then(({movies}) => this.getMovieGenres(movies))
       .catch((error) => this.setState({ error: 'Sorry, there seems to be an error. Please try again later'}))
+  }
+
+  searchMovies = (input) => {
+    
+    const searchedMovies = this.state.movies.filter(movie => {
+      return movie.title.includes(input)
+    })
+    debugger
+    this.setState({filteredMovies: searchedMovies})
   }
 
   getMovieGenres = async (movies) => {
@@ -59,6 +69,7 @@ class App extends Component {
       <main>
         <Header />
         <Filter filterGenre={this.filterGenre} />
+        <Search searchMovies={this.searchMovies} />
         <Route exact path="/">
         {this.state.error && <h2>{this.state.error}</h2>}
         {this.setMovies()}
