@@ -4,7 +4,7 @@ import '../CSS/MovieCard.css'
 
 const MovieCard = ({poster_path, title, average_rating, id}) => {
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/${id}`} style={{textDecoration: "none"}}>
       <div className="card">
         <img className="card-image" src={poster_path} />
         <p>{title}</p>
