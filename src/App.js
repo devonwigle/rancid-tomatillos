@@ -27,10 +27,12 @@ class App extends Component {
   }
 
   searchMovies = (input) => {
-    const searchedMovie = this.state.movies.filter(movie => {
-      movie.title.includes(input)
+    
+    const searchedMovies = this.state.movies.filter(movie => {
+      return movie.title.includes(input)
     })
-    this.setState({movies: searchedMovie})
+    debugger
+    this.setState({filteredMovies: searchedMovies})
   }
 
   getMovieGenres = async (movies) => {

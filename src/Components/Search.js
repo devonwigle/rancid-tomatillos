@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useImperativeHandle } from 'react'
 
-const Search = () => {
+const Search = ({searchMovies}) => {
+  let searchField = '' 
+
   const submitTitle = event => {
+    searchMovies(searchField)
     event.preventDefault()
+  }
+
+  const handleInput = event => {
+    searchField = event.target.value
   }
 
   return (
     <div>
-      <input type="text" placeholder="Movie Title" name="search" /> 
-      <button onClick={event => this.submitTitle(event)}>SUBMIT</button> 
+      <input type="text" placeholder="Movie Title" name="search" onChange={handleInput} /> 
+      <button onClick={submitTitle}>Search</button> 
     </div>
   )
 }
