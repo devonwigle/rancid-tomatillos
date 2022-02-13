@@ -1,4 +1,5 @@
 import React from 'react'
+import '../CSS/Filter.css'
 
 const Filter = ({filterGenre}) => {
   
@@ -9,8 +10,8 @@ const Filter = ({filterGenre}) => {
 
   
     return (
-    <div>
-        <label name="genre">Choose a genre:</label>
+    <div className="genre-filter">
+        <label className="filter-label" name="genre">Choose a genre</label>
           <select id="genre" name="genre" onChange={({target: {value}}) => handleChange(value)}>
             <option value="All">All</option>
             <option value="Action">Action</option>
