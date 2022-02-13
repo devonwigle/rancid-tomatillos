@@ -8,6 +8,7 @@ import Filter from './Components/Filter'
 import Search from './Components/Search'
 import './App.css'
 import { Route } from 'react-router-dom';
+import loading from './assets/loading-gif.gif'
 
 
 class App extends Component {
@@ -57,10 +58,16 @@ class App extends Component {
 
   setMovies = () => {
     if (this.state.filteredMovies.length === 0) {
-      return <div className="test">LOADING BITCH</div>
+      return <img className="loading-gif" src={loading}></img>
     }
 
-    return <MovieContainer movies={this.state.filteredMovies}></MovieContainer>
+    return (
+      <div>
+        <Filter filterGenre={this.filterGenre} />
+        <Search searchMovies={this.searchMovies} /> 
+        <MovieContainer movies={this.state.filteredMovies}></MovieContainer>
+      </div>
+    )
   }
 
 
@@ -68,8 +75,7 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <Filter filterGenre={this.filterGenre} />
-        <Search searchMovies={this.searchMovies} />
+        
         <Route exact path="/">
         {this.state.error && <h2>{this.state.error}</h2>}
         {this.setMovies()}
