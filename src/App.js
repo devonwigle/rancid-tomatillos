@@ -56,6 +56,13 @@ class App extends Component {
     this.setState({filteredMovies: filteredMovies})
   }
 
+  goHome = () => {
+    this.setState({
+      movies: [],
+      filteredMovies: [],
+      error: '' })
+  }
+
   setMovies = () => {
     if (this.state.filteredMovies.length === 0) {
       return <img className="loading-gif" src={loading}></img>

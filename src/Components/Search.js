@@ -5,8 +5,8 @@ const Search = ({searchMovies}) => {
   let searchField = '' 
 
   const submitTitle = event => {
-    searchMovies(searchField)
     event.preventDefault()
+    searchMovies(searchField)
   }
 
   const handleInput = event => {
