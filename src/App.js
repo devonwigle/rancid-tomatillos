@@ -19,6 +19,7 @@ class App extends Component {
       movies: [],
       filteredMovies: [],
       error: '',
+      loading: true, 
     }
   }
   
@@ -33,7 +34,8 @@ class App extends Component {
       return movie.title.toLowerCase().includes(input.toLowerCase())
     })
     this.setState({filteredMovies: searchedMovies})
-  }
+    }
+  
 
   getMovieGenres = async (movies) => {
     const updatedMovies = []
@@ -43,6 +45,7 @@ class App extends Component {
       updatedMovies.push(movie)
     }
     this.setState({movies: updatedMovies, filteredMovies: updatedMovies})
+    this.setState({loading: false})
   }
 
   filterGenre = (genre) => { 
@@ -59,12 +62,25 @@ class App extends Component {
     this.setState({
       movies: [],
       filteredMovies: [],
-      error: '' })
+      error: '',
+    })
   }
 
   setMovies = () => {
-    if (this.state.filteredMovies.length === 0) {
+    if (this.state.loading) {
       return <img className="loading-gif" src={loading}></img>
+    }
+
+    if (this.state.filteredMovies.length === 0) {
+      return (
+        <div>
+          <div className="search-filter">
+            <Filter filterGenre={this.filterGenre} />
+            <Search searchMovies={this.searchMovies} /> 
+          </div>
+          <div>No movie by that title found, please try again</div>
+        </div>
+      )
     }
 
     return (
