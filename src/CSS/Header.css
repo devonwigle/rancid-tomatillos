@@ -21,3 +21,8 @@
 .tomato {
   width: 50px;
 }
+
+a {
+  display: flex;
+  align-content: center;
+}
