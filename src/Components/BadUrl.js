@@ -1,7 +1,9 @@
 import React from 'react'
 
 const BadUrl = () => {
-  <h2>That url does not exist</h2>
+  return (
+    <h2>Trouble processing your request. Please try again later</h2>
+  )
 }
 
 export default BadUrl

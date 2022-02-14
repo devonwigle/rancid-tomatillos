@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import '../CSS/MovieDetails.css'
+import BadUrl from './BadUrl'
 import {getSingleMovie} from '../apiCalls'
 
 
@@ -20,7 +21,7 @@ class MovieDetails extends Component {
 
   render() {
     if (!this.state.movie) {
-      return <div>loading</div>
+      return <BadUrl />
     }
 
     return(

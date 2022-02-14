@@ -51,6 +51,7 @@ describe('Movie flows', () => {
   it('Should not be able to return a bad url', () => {
     cy.visit('http://localhost:3000')
     cy.visit('http://localhost:3000/fdase')
+      .contains('Trouble processing your request. Please try again later')
   })
 
   it('should be able to handle errors', () => {
@@ -61,6 +62,7 @@ describe('Movie flows', () => {
       } 
     )
     cy.visit('http://localhost:3000')
+      
   })
 
   it('Should be able to go back home', () => {

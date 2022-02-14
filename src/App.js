@@ -29,7 +29,6 @@ class App extends Component {
   }
 
   searchMovies = (input) => {
-    
     const searchedMovies = this.state.movies.filter(movie => {
       return movie.title.includes(input)
     })
