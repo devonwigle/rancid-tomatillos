@@ -48,6 +48,21 @@ describe('Movie flows', () => {
       .contains('Money Plane')
   })
 
+  it('Should not be able to return a bad url', () => {
+    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3000/fdase')
+  })
+
+  it('should be able to handle errors', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/',
+      {
+        statusCode: 404,
+        ok: false,
+      } 
+    )
+    cy.visit('http://localhost:3000')
+  })
+
   it('Should be able to go back home', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/',
       {
