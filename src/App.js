@@ -78,7 +78,7 @@ class App extends Component {
             <Filter filterGenre={this.filterGenre} />
             <Search searchMovies={this.searchMovies} /> 
           </div>
-          <div>No movie by that title found, please try again</div>
+          <div>No movie by that title found, please search another title</div>
         </div>
       )
     }
