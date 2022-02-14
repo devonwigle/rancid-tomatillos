@@ -26,3 +26,9 @@ a {
   display: flex;
   align-content: center;
 }
+
+.loading-gif {
+  display: flex;
+  justify-content: center;
+  padding-left: 35%;
+}
