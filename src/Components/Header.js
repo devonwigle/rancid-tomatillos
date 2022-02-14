@@ -6,11 +6,11 @@ import tomato from '../assets/tomato.png'
 const Header = ({goHome}) => {
 return(
     <div className="header">
-      <h1 className="title">Rancid Tomatillos <img className="tomato" src={tomato}/></h1>
+      <h1 className="title">Rancid Tomatillos</h1>
+      <img className="tomato" src={tomato} />
       <Link to="/">
-        <button className="home-button">Home</button>
+      <button onClick={goHome} className="home-button">Home</button>
       </Link>
-
     </div>
 )
 }

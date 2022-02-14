@@ -6,9 +6,11 @@ const MovieCard = ({poster_path, title, average_rating, id}) => {
   return (
     <Link to={`/${id}`} style={{textDecoration: "none"}}>
       <div className="card">
-        <img className="card-image" src={poster_path} />
-        <p>{title}</p>
-        <p>User Rating: {average_rating}</p>
+        <img className="card-image" src={poster_path} alt={title}/>
+        <div className="info-box">
+          <p>{title}</p>
+          <p>User Rating: {average_rating}</p>
+        </div>
       </div>
     </Link>
   )

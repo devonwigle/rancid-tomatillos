@@ -6,8 +6,9 @@ import MovieDetails from './Components/MovieDetails'
 import Header from './Components/Header'
 import Filter from './Components/Filter'
 import Search from './Components/Search'
+import BadUrl from './Components/BadUrl'
 import './App.css'
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import loading from './assets/loading-gif.gif'
 
 
@@ -28,11 +29,9 @@ class App extends Component {
   }
 
   searchMovies = (input) => {
-    
     const searchedMovies = this.state.movies.filter(movie => {
-      return movie.title.includes(input)
+      return movie.title.toLowerCase().includes(input.toLowerCase())
     })
-    debugger
     this.setState({filteredMovies: searchedMovies})
   }
 
@@ -56,6 +55,13 @@ class App extends Component {
     this.setState({filteredMovies: filteredMovies})
   }
 
+  goHome = () => {
+    this.setState({
+      movies: [],
+      filteredMovies: [],
+      error: '' })
+  }
+
   setMovies = () => {
     if (this.state.filteredMovies.length === 0) {
       return <img className="loading-gif" src={loading}></img>
@@ -63,8 +69,10 @@ class App extends Component {
 
     return (
       <div>
-        <Filter filterGenre={this.filterGenre} />
-        <Search searchMovies={this.searchMovies} /> 
+        <div className="search-filter">
+          <Filter filterGenre={this.filterGenre} />
+          <Search searchMovies={this.searchMovies} /> 
+        </div>
         <MovieContainer movies={this.state.filteredMovies}></MovieContainer>
       </div>
     )
@@ -75,16 +83,20 @@ class App extends Component {
     return (
       <main>
         <Header />
-        
-        <Route exact path="/">
-        {this.state.error && <h2>{this.state.error}</h2>}
-        {this.setMovies()}
-        </Route>
-        <Route
-          exact
-          path="/:id"
-          render={({match}) => <MovieDetails id={match.params.id}></MovieDetails>}
-        />
+        <Switch>
+          <Route exact path="/">
+          {this.state.error && <h2>{this.state.error}</h2>}
+          {this.setMovies()}
+          </Route>
+          <Route
+            exact
+            path="/:id"
+            render={({match}) => <MovieDetails id={match.params.id}></MovieDetails>}
+          />
+          <Route 
+            render={() => <BadUrl />} />
+
+        </Switch>  
       </main>
     )
   }
