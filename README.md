@@ -2,8 +2,7 @@
 
 ### Overview
 
-This two week project was built with React.js. Users can browse a selection of movies on the home page and search a by movie title or filter by genre. When a 
-user clicks on a movie, they will be taken to a page with that movies indiviudal details. 
+This two week project was built with React.js. Users can browse a selection of movies on the home page and search a by movie title or filter by genre. When a user clicks on a movie, they will be taken to a page with that movie's indiviudal details. 
 
 ### Technologies Used
 
