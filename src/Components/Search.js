@@ -1,4 +1,4 @@
-import React, { useImperativeHandle } from 'react'
+import React from 'react'
 import '../CSS/Search.css'
 
 const Search = ({searchMovies}) => {
