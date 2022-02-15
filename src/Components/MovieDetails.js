@@ -26,9 +26,6 @@ class MovieDetails extends Component {
 
     return(
       <div className="movie-details">
-        <Link to="/">
-          <button className="home-button">Home</button>
-        </Link>
         <img className="backdrop" src={this.state.movie.backdrop_path} />
         <div className="details">
           <p className="detail-title">{this.state.movie.title}</p>
@@ -37,6 +34,9 @@ class MovieDetails extends Component {
           <p>Overview: {this.state.movie.overview}</p>
           <p>Runtime: {this.state.movie.runtime} minutes</p>
         </div>
+        <Link to="/">
+          <button className="home-button">Go Home ↩︎</button>
+        </Link>
       </div>
     )
   }
