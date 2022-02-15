@@ -1,25 +1,14 @@
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-left: 2%;
   font-family: 'Ultra', serif;
-  font-size: 30px;
-  text-shadow: 3px 3px 5px rgb(211, 200, 200);
-}
-
-.home-button {
-  color:white;
-  border: none;
-  background-color: black;
-  font-size: 25px;
-  cursor: pointer;
-  margin-right: 30px;
-  text-decoration: underline;
-  font-family: 'Ultra', serif;
+  font-size: 35px;
+  text-shadow: 4px 4px 6px rgb(211, 200, 200);
 }
 
 .tomato {
-  width: 50px;
+  width: 55px;
   height: 55px;
 }
 

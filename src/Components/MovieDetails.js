@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 import '../CSS/MovieDetails.css'
 import BadUrl from './BadUrl'
 import {getSingleMovie} from '../apiCalls'
@@ -33,6 +34,9 @@ class MovieDetails extends Component {
           <p>Overview: {this.state.movie.overview}</p>
           <p>Runtime: {this.state.movie.runtime} minutes</p>
         </div>
+        <Link to="/">
+          <button className="home-button">Go Home ↩︎</button>
+        </Link>
       </div>
     )
   }
