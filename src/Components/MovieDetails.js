@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 import '../CSS/MovieDetails.css'
 import BadUrl from './BadUrl'
 import {getSingleMovie} from '../apiCalls'
@@ -25,6 +26,9 @@ class MovieDetails extends Component {
 
     return(
       <div className="movie-details">
+        <Link to="/">
+          <button className="home-button">Home</button>
+        </Link>
         <img className="backdrop" src={this.state.movie.backdrop_path} />
         <div className="details">
           <p className="detail-title">{this.state.movie.title}</p>
