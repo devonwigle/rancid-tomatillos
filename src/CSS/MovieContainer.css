@@ -1,14 +1,9 @@
 .movie-container {
-  /* display: grid;
+  display: grid;
   grid-gap: 1%;
   grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   justify-content: space-evenly;
-  padding-top: 3%;
-  padding-left: 5%; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-top: 5%;
+  padding-left: 5%;
 }
 
 
