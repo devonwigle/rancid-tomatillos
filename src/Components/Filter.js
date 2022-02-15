@@ -2,12 +2,10 @@ import React from 'react'
 import '../CSS/Filter.css'
 
 const Filter = ({filterGenre}) => {
-  
 
   const handleChange = (genre) => {
     filterGenre(genre)
   }
-
   
     return (
     <div className="genre-filter">
@@ -33,6 +31,5 @@ const Filter = ({filterGenre}) => {
       </div>
     )
   }
-
 
 export default Filter

@@ -3,7 +3,6 @@ import '../CSS/MovieDetails.css'
 import BadUrl from './BadUrl'
 import {getSingleMovie} from '../apiCalls'
 
-
 class MovieDetails extends Component {
   constructor() {
     super()
